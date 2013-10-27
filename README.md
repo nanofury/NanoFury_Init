@@ -8,10 +8,12 @@ Summary
 
 This is a simple test program to excercise the NanoFury devices.
 
-Portions of the program (spitest) were originally written by Bitfury as part of his initial testing.
-Link to original source can be found at:
+Portions of the program (spitest) were originally written by Bitfury as part of his initial chip testing.
+Link to original source can be found at the links below (it appeared twice - once in each of the Russian and English forums):
+https://bitcointalk.org/index.php?topic=228677.msg2515472#msg2515472
 https://bitcointalk.org/index.php?topic=183368.msg2515577#msg2515577
 
+This application can exercise individual NanoFury devices and can also fix the "Product String" which is a required change so that ''bfgminer'' can recognize all devices automatically (as opposed to having to individually supply the serial numbers).
 
 Dependencies
 ============
