@@ -25,3 +25,12 @@ The library and all files need to go to: \NanoFury_Init\nf1_init\MCP2210-Library
 
 
 This project requires Microsoft Visual Studio 2010 or newer.
+
+
+Authors
+=======
+
+The following individuals had major contributions to this project:
+ * Bitfury - initial sample applications (for Raspberry Pi) excercising the bitfiry chips
+ * Valeria Pelova - port of the MCP2210 library and making everything actually compile under Windows and Visual Studio 2010
+ * Vladimir Strinski - NanoFury-specific drivers and low-level software development
