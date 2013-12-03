@@ -390,6 +390,11 @@ int spitest_main(unsigned char* osc)
 		//nanosleep(&ts, 0);
 		Sleep(20);
 
+		curTime = GetTickCount();
+		time ( &rawtime );
+		timeinfo = localtime ( &rawtime );
+		printf("testing [%i:%i:%i]...\r", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
+
 		spi_clear_buf(); spi_emit_break();
 		spi_emit_data(0x3000, (char*)&atrvec[0], 19*4);
 		spi_txrx(hndNanoFury, (char*)spi_gettxbuf(), (char*)spi_getrxbuf(), spi_getbufsz());
@@ -403,9 +408,6 @@ int spitest_main(unsigned char* osc)
 				if (oldbuf[i] != newbuf[i]) {
 					unsigned non = fix_nonce(newbuf[i], prevms, prevw);
 					if (non) {
-						curTime = GetTickCount();
-						time ( &rawtime );
-						timeinfo = localtime ( &rawtime );
 
 						printf("FOUND VALID SOLUTION %08x MIDSTATE0 %08x NONCE (TV) %08x BUF %08x @ %04u mS [%i:%i:%i]\n", non, prevms[0], prevw[3], newbuf[i], curTime-prevTime, timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
 						prevTime = curTime;
